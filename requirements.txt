@@ -1,0 +1,33 @@
+# Advanced Python for MLOps - Requirements
+# Core Python libraries (built-in modules don't need versions)
+# time, importlib, logging, json, mmap, os, threading, queue, multiprocessing, subprocess, tempfile, unittest.mock
+
+# Data Science and ML Libraries
+pandas>=2.0.0
+numpy>=1.24.0
+h5py>=3.8.0
+scikit-learn>=1.3.0
+joblib>=1.3.0
+requests>=2.31.0
+
+# Testing Framework
+pytest>=7.4.0
+
+# Web Frameworks for ML APIs
+flask>=2.3.0
+fastapi>=0.100.0
+pydantic>=2.0.0
+uvicorn>=0.23.0
+
+# Cloud SDKs
+boto3>=1.28.0
+google-cloud-storage>=2.10.0
+azure-storage-blob>=12.17.0
+
+# Container and Orchestration SDKs
+docker>=6.1.0
+kubernetes>=27.2.0
+
+# ML Platform SDKs
+mlflow>=2.5.0
+
