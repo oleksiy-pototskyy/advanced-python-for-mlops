@@ -72,5 +72,36 @@ print("- Automatic setup/teardown of test resources")
 print("- Reusable across multiple tests")
 print("- Ensures clean test environment")
 
+print("\n" + "="*50 + "\n")
+
+# Example 3: Session-Scoped Fixture
+# Expensive operations run once per test session
+print("=== Session-Scoped Fixture Example ===")
+
+@pytest.fixture(scope="session")
+def ml_model():
+    """Session-scoped fixture for expensive ML model loading"""
+    print("Setup: Loading expensive ML model (once per session)")
+    model = "trained-model-weights"  # Simulate loading large model
+    yield model
+    print("Teardown: Unloading ML model (end of session)")
+
+def test_model_prediction_1(ml_model):
+    """First test using the shared model"""
+    print(f"Test 1 using model: {ml_model}")
+    assert ml_model == "trained-model-weights"
+
+def test_model_prediction_2(ml_model):
+    """Second test using the same model instance"""
+    print(f"Test 2 using same model: {ml_model}")
+    assert ml_model == "trained-model-weights"
+
+print("\n=== Fixture Scopes ===")
+print("- function (default): Fresh fixture per test")
+print("- session: One fixture for entire test session")
+print("- Useful for: databases, large datasets, ML models")
+
+
+
 
 
