@@ -132,3 +132,5 @@ uvicorn 12_building_machine_learning_apis.04_introduction_to_fastapi:app --reloa
 This repository accompanies the **Advanced Python for MLOps** course, part of the MLOps Specialization.
 
 **Learn more**: [nubes.academy/advanced-python-for-mlops-mlops-specialization](https://nubes.academy/advanced-python-for-mlops-mlops-specialization/)
+
+Prepared by [Oleksiy Pototskyy](https://pototskyy.net/)
