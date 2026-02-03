@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlops-pipeline"
+version = "1.2.3"
+description = "MLOps pipeline package for model training and deployment"
+authors = [{name = "MLOps Team", email = "mlops@company.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas>=1.5,<2.0",
+    "numpy>=1.20.0",
+    "scikit-learn>=1.0.0,<2.0.0",
+    "mlflow>=2.0.0",
+    "boto3>=1.26.0",
+    "pydantic>=1.10.0,<3.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "mypy>=1.0.0"
+]
+api = [
+    "fastapi>=0.95.0",
+    "uvicorn>=0.20.0"
+]
+
+[project.scripts]
+train-model = "mlops_pipeline.cli:train"
+deploy-model = "mlops_pipeline.cli:deploy"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
