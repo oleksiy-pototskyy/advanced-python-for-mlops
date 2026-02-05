@@ -58,13 +58,13 @@ print("=== Process-Safe Queue Example ===")
 
 def worker(q):
     """Worker process - handles ML computation tasks"""
-    while not q.empty():
+    while True:
         try:
             item = q.get(timeout=1)  # Get with timeout to avoid hanging
-            print(f"Process {Process().pid} processing: {item}")
+            print(f"Process processing: {item}")
             time.sleep(0.5)  # Simulate CPU-intensive work
         except:
-            break  # Queue is empty, exit
+            break  # Queue is empty or timeout, exit
 
 if __name__ == "__main__":
     # Create process-safe queue
@@ -72,10 +72,11 @@ if __name__ == "__main__":
     
     # Fill queue with tasks (e.g., model training parameters)
     print("Adding tasks to process queue...")
-    for i in range(5):
+    task_count = 5
+    for i in range(task_count):
         q.put(i)
     
-    print(f"Queue size: {q.qsize()}")
+    print(f"Added {task_count} tasks to queue")
     
     # Create worker processes to handle tasks
     processes = [Process(target=worker, args=(q,)) for _ in range(2)]
